@@ -1,6 +1,6 @@
 ## Overview
 
-This is the code for [this](https://www.youtube.com/watch?v=05NqKJ0v7EE) video on Youtube by Siraj Raval. The author of this code is [edwardhdlu](https://github.com/edwardhdlu/q-trader) . It's implementation of Q-learning applied to (short-term) stock trading. The model uses n-day windows of closing prices to determine if the best action to take at a given time is to buy, sell or hold.
+This is a test/replica from original code: [edwardhdlu](https://github.com/edwardhdlu/q-trader) . It's implementation of Q-learning applied to (short-term) stock trading. The model uses n-day windows of closing prices to determine if the best action to take at a given time is to buy, sell or hold.
 
 Additional controls added:
  - Buy: only when inventory == 0; not allowing opening multiple positions.
