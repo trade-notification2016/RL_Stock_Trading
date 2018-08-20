@@ -17,12 +17,15 @@ try:
 
         agent = Agent(window_size, True, model_name)
         data = getStockDataVec(stock_name)
+        #print(type(data))
+
         l = len(data) - 1
         batch_size = 32
 
         state = getState(data, 0, window_size + 1)
         total_profit = 0
         agent.inventory = []
+
 
         for t in range(l):
                 action = agent.act(state)
@@ -31,9 +34,10 @@ try:
                 next_state = getState(data, t + 1, window_size + 1)
                 reward = 0
 
-                if action == 1: # buy
+                if action == 1 and len(agent.inventory) ==0: # buy
                         agent.inventory.append(data[t])
                         print("Buy: " + formatPrice(data[t]))
+
 
                 elif action == 2 and len(agent.inventory) > 0: # sell
                         bought_price = agent.inventory.pop(0)

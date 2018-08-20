@@ -1,5 +1,6 @@
 import numpy as np
 import math
+import pandas as pd
 
 # prints formatted price
 def formatPrice(n):
@@ -13,6 +14,16 @@ def getStockDataVec(key):
 	for line in lines[1:]:
 		vec.append(float(line.split(",")[4]))
 
+	return vec
+
+def getStockDataVec1(key):
+	vec = []
+	lines = pd.read_csv("data/" + key + ".csv")
+	#vec = lines[['Date','Close']]
+
+	for line in lines[1:]:
+		vec.append(line.split(",")[1],float(line.split(",")[4]))
+	
 	return vec
 
 # returns the sigmoid
